@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Приглашение на свадьбу | Даниил & Анастасия</title>
+  <style>
+    /* ----- Общие стили и сброс ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+      background: #faf7f2;  /* тёплый нейтральный фон */
+      color: #2e2e2e;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 40px 40px 30px 30px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      padding: 40px 35px 50px;
+    }
+
+    /* ----- Цветовая палитра (розовый + оливковый) ----- */
+    :root {
+      --rose: #e8c7c0;      /* нежно-розовый */
+      --rose-light: #f5e6e2;
+      --olive: #9eae8b;     /* приглушённый оливковый */
+      --olive-light: #d9e0cf;
+      --text-dark: #2e3a2c;
+    }
+
+    /* ----- Декоративные акценты ----- */
+    .accent-rose {
+      color: #b48a81;
+      font-weight: 500;
+    }
+
+    .accent-olive {
+      color: #7b8a6b;
+      font-weight: 500;
+    }
+
+    hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--rose), var(--olive), transparent);
+      margin: 36px 0 28px;
+      opacity: 0.25;
+    }
+
+    /* ----- Картинки (превью) ----- */
+    .image-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 30px 0 20px;
+      justify-content: center;
+    }
+
+    .image-row img {
+      width: 100%;
+      max-width: 230px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease;
+      flex: 1 1 180px;
+    }
+
+    .image-row img:hover {
+      transform: scale(1.02);
+    }
+
+    /* ----- Заголовки и текст ----- */
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 300;
+      letter-spacing: 3px;
+      color: #3f4d3a;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    h1 span {
+      font-weight: 400;
+      color: #b48a81;
+    }
+
+    .subhead {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #6b7a5e;
+      margin-top: -6px;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 28px 0 12px;
+      color: #3f4d3a;
+      border-left: 5px solid var(--rose);
+      padding-left: 18px;
+    }
+
+    h2 .emoji {
+      margin-right: 8px;
+    }
+
+    /* ----- Блоки ----- */
+    .card-soft {
+      background: #fbf9f7;
+      border-radius: 28px;
+      padding: 18px 24px 20px;
+      margin: 18px 0 12px;
+      border: 1px solid #f0ebe6;
+    }
+
+    .address-block {
+      background: var(--rose-light);
+      border-radius: 30px;
+      padding: 14px 22px;
+      margin: 12px 0 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px 18px;
+    }
+
+    .address-block a {
+      color: #4b5e40;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 2px solid var(--olive);
+      padding-bottom: 2px;
+      transition: 0.15s;
+    }
+
+    .address-block a:hover {
+      border-bottom-color: #b48a81;
+      color: #2e3a2c;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--olive-light);
+      padding: 3px 14px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #3f4d3a;
+      letter-spacing: 0.3px;
+      margin-right: 6px;
+    }
+
+    ul, .list-inline {
+      list-style: none;
+      padding-left: 4px;
+    }
+
+    ul li, .list-inline li {
+      padding: 6px 0 6px 28px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%239eae8b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>') left center no-repeat;
+      background-size: 18px;
+    }
+
+    /* ----- Баннер "Важно!" ----- */
+    .important-box {
+      background: #f5ede8;
+      border-radius: 30px;
+      padding: 18px 26px;
+      margin: 28px 0 12px;
+      border-left: 6px solid var(--rose);
+    }
+
+    .important-box strong {
+      color: #7b5e55;
+      font-weight: 600;
+    }
+
+    /* ----- Подпись ----- */
+    .signature {
+      text-align: right;
+      font-size: 1.3rem;
+      font-weight: 300;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #e6ddd6;
+      color: #3f4d3a;
+    }
+
+    .signature span {
+      background: var(--rose-light);
+      padding: 4px 18px;
+      border-radius: 60px;
+      font-weight: 400;
+    }
+
+    /* ----- Адаптивность ----- */
+    @media (max-width: 600px) {
+      .container {
+        padding: 24px 18px 30px;
+        border-radius: 28px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .address-block {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      .image-row img {
+        max-width: 100%;
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Шапка -->
+  <h1>Даниил <span>&</span> Анастасия</h1>
+  <div class="subhead">приглашают на свадьбу</div>
+
+  <!-- Фотографии (загородный дом, природа, шашлыки) -->
+  <div class="image-row">
+    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop&crop=center" alt="Загородный дом">
+    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=400&fit=crop&crop=center" alt="Природа">
+    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=400&fit=crop&crop=center" alt="Шашлыки">
+  </div>
+
+  <!-- Обращение -->
+  <p style="font-size: 1.15rem; margin-top: 16px;"><strong>Дорогие наши гости!</strong></p>
+  <p>Приглашаем вас на нашу свадьбу — без пышных банкетов, но с самым главным: с нами, близкими людьми и душевной атмосферой.</p>
+  <p>Мы не хотим официальных речей и строгих рассадок. Хотим, чтобы вы просто были рядом, смеялись, ели шашлык и чувствовали себя как дома.</p>
+
+  <hr>
+
+  <!-- Как всё будет устроено -->
+  <h2><span class="emoji">📌</span> Как всё будет устроено</h2>
+
+  <div class="address-block">
+    <span>🕐 11:00 — регистрация в ЗАГСе</span>
+    <span style="flex:1;"></span>
+    <a href="https://yandex.ru/maps/?text=Москва, 3-я Владимирская улица, 9А" target="_blank">📍 Москва, 3-я Владимирская ул., 9А</a>
+  </div>
+  <p style="margin-top: -6px; font-size: 0.95rem; color: #5e6d52;">(внутрь не пустят, присоединяйтесь по желанию)</p>
+
+  <div class="address-block" style="background: #e7efde;">
+    <span>🕐 14:00 — сбор в доме</span>
+    <span style="flex:1;"></span>
+    <a href="https://yandex.ru/maps/?pt=38.564487,55.913409&z=15" target="_blank">📍 55.913409, 38.564487</a>
+    <span style="font-size:0.85rem; color:#6b7a5e;">(координаты примерные, точные скинем позже)</span>
+  </div>
+
+  <hr>
+
+  <!-- Как добраться и что взять -->
+  <h2><span class="emoji">🚘</span> Как добраться и что взять с собой</h2>
+  <div class="card-soft">
+    <ul>
+      <li><strong>Добираемся своим ходом</strong> — кто на чём может. Если будет свободное место в машине — напишите, мы поможем скоординироваться.</li>
+      <li><strong>Еда и напитки — по желанию.</strong> Если хотите, привезите что-то своё к столу, но это не обязательно. Главное — мы сами готовим шашлык и организуем закуски. Нам помогают сёстры, так что голодным никто не останется ♥️</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- Формат дня -->
+  <h2><span class="emoji">🎉</span> Формат дня</h2>
+  <p>Всё время проводим вместе в уютной, свободной обстановке. Прямо за столом сидеть не будем — будет фуршет: можно перемещаться, общаться, гулять по территории дома. Дом большой, место есть и внутри, и на улице.</p>
+  <div class="card-soft" style="background: #f5f0ea;">
+    <p style="margin:0;">🥩 Шашлык · 🗣 Разговоры · 😂 Смех · 🎵 Музыка · 📸 Фото — просто счастливый день.</p>
+  </div>
+  <p style="margin-top: 8px;">🛁 Вопрос с баней пока решается — скажем позже.</p>
+
+  <hr>
+
+  <!-- На ночёвку -->
+  <h2><span class="emoji">🌙</span> На ночёвку</h2>
+  <p>Вечером разъезжаемся, но у нас есть <strong>2 свободные комнаты</strong> в доме. Если кто захочет остаться до утра — бронируйте заранее, место будет вашим 😁</p>
+
+  <hr>
+
+  <!-- Важно! -->
+  <div class="important-box">
+    <strong>⭐ Важно!</strong> Мы очень хотим, чтобы этот день был общим. Поэтому ваши идеи, пожелания и предложения — приветствуются и даже очень ждутся 🥰
+  </div>
+
+  <!-- Подпись -->
+  <div class="signature">
+    <span>Ждём вас с огромной радостью!</span><br>
+    <span style="background:transparent; padding:0;">Ваши Даниил и Анастасия</span>
+  </div>
+
+  <!-- Маленький декоративный элемент -->
+  <div style="text-align:center; margin-top: 28px; opacity:0.3; font-size:0.7rem; letter-spacing: 3px; color: #9eae8b;">• • •</div>
+
+</div>
+
+</body>
+</html>
